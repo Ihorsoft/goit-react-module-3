@@ -5,8 +5,18 @@ import Description from "../description/Description";
 import Feedback from "../feedback/Feedback.jsx";
 import Options from "../options/Options";
 import Notification from "../notification/Notification.jsx";
+import SwitchDay from "../switchday/SwitchDay.jsx";
+
+import LoginForm from "../loginform/LoginForm.jsx";
+import InputEffect from "../inputeffect/InputEffect.jsx";
+import SuperButton from "../superbutton/SuperButton.jsx";
+import FeedbackForm from "../FeedbackForm/FeedbackForm.jsx";
 
 function App() {
+  const handleLogin = (userData) => {
+    console.log("userData for hendleLOgin into APP", userData);
+  };
+
   const updateFeedback = (feedbackType) => {
     switch (feedbackType) {
       case "good":
@@ -71,7 +81,13 @@ function App() {
 
   return (
     <>
-      <Description />
+      <SuperButton />
+      <InputEffect />
+      <SwitchDay />
+      <LoginForm onLogin={handleLogin} />
+      <FeedbackForm />
+
+      {/*  <Description />
       <Options
         feedbackObj={feedbackObj}
         totalFeedback={totalFeedback}
@@ -85,7 +101,7 @@ function App() {
           totalFeedback={totalFeedback}
           positiveFeedback={positiveFeedback}
         />
-      )}
+      )} */}
     </>
   );
 }
